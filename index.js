@@ -25,7 +25,12 @@ const shoppingListEl = document.getElementById("shopping-list");
 addButtonEl.addEventListener("click", function () {
   let inputValue = inputFieldEl.value;
 
-  push(ShopingListInDB, inputValue);
+  if (inputValue != "") {
+    addButtonEl.disabled = false;
+    push(ShopingListInDB, inputValue);
+  } else {
+    alert("Please put some item in box");
+  }
 
   clearInputFieldEl();
 });
